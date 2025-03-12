@@ -1,4 +1,3 @@
-from Preprocessing import batch_preprocess
 import numpy as np
 
 def random_rotation(image, max_angle=15):
