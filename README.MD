@@ -3,6 +3,6 @@ A pure-Python (ok, almost) implementation of a LeCunian Convolutional Neural Net
 # More info
 A sample of the notes can be found in `Preprocessing/test/test.jpeg`. 
 # Installation
-Start a virtual environment and install all dependencies with 
+Start a virtual environment and install all dependencies with `pip install -r requirements.txt`.
 # TODO
 Need to apply kernel to remove the lines from the graph paper...probably easiest to do this before adding grayscale, since the color is distinct from that of the pen ink.
