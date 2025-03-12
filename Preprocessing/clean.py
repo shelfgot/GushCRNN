@@ -2,45 +2,15 @@ import numpy as np
 
 import cv2
 
-
-'''def otsu_threshold(image):
-    """Apply Otsu's algorithm for binarization
+def adaptive_threshold(image):
+    """Apply the adaptive threshhold algo from OpenCV for binarization
 
     Args:
-        image (np.array): array, N x 1
+        image (np.array): a numpy array of the image
 
     Returns:
-        image (np.array): array, N x 1 (binarized)
+        np.array: binarized image
     """
-    #DEBUG!
-    #print("Min pixel value:", np.min(image))
-    #print("Max pixel value:", np.max(image))
-
-    histogram, _ = np.histogram(image.flatten(), bins=256, range=[0, 1])
-    total_pixels = image.size
-    sum_total = np.sum(np.arange(256) * histogram)
-
-    sum_background, weight_background, max_variance, threshold = 0, 0, 0, 0
-    for t in range(256):
-        weight_background += histogram[t]
-        if weight_background == 0: 
-            continue
-        weight_foreground = total_pixels - weight_background
-        if weight_foreground == 0: 
-            break
-
-        sum_background += t * histogram[t]
-        mean_background = sum_background / weight_background
-        mean_foreground = (sum_total - sum_background) / weight_foreground
-
-        variance = weight_background * weight_foreground * (mean_background - mean_foreground) ** 2
-        if variance > max_variance:
-            max_variance, threshold = variance, t
-
-
-    return (image > threshold).astype(np.uint8)'''
-
-def adaptive_threshold(image):
     return cv2.adaptiveThreshold(
         image, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
         cv2.THRESH_BINARY, 11, 2

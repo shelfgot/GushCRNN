@@ -3,7 +3,7 @@ from resize import *
 from segment import *
 
 def preprocess_image(image):
-    image = otsu_threshold(image)
+    image = adaptive_threshold(image)
     plt.imshow(image, cmap="gray")
     plt.show()
     image = median_filter(image)
